@@ -1,7 +1,7 @@
 const topics = {
   hotspot: {
     index: '01', category: 'LAYANAN HOTSPOT', title: 'Internet di area hotspot',
-    copy: 'Hotspot hanya tersedia di area yang terjangkau jaringan hotspot Iqla.net. Pilih paket sesuai kebutuhan Anda.',
+    copy: 'Untuk saat ini, Hotspot hanya tersedia di sekitar kantor layanan. Hubungi Admin untuk memastikan jangkauan di lokasi Anda.',
     link: 'Lihat paket Hotspot', href: '#panel-hotspot', tab: 'tab-hotspot'
   },
   home: {
@@ -16,7 +16,7 @@ const topics = {
   },
   area: {
     index: '04', category: 'CAKUPAN JARINGAN', title: 'Pastikan area Anda terjangkau',
-    copy: 'Wilayah coverage Iqla.net adalah Marga Jaya. Alamat bisnis: Jl. Protokol, Desa Marga Jaya, RT.12 RW.03, Kec. Padang Jaya, Kab. Bengkulu Utara. Jangkauan Hotspot mengikuti area yang tercover; hubungi Admin untuk memastikan layanan tersedia di lokasi Anda.',
+    copy: 'Wilayah coverage Iqla.net adalah Marga Jaya. Untuk saat ini, Hotspot hanya tersedia di sekitar kantor layanan. Alamat kantor: Jl. Protokol, Desa Marga Jaya, RT.12 RW.03, Kec. Padang Jaya, Kab. Bengkulu Utara.',
     link: 'Pilih paket Hotspot', href: '#panel-hotspot', tab: 'tab-hotspot'
   },
   kontak: {
