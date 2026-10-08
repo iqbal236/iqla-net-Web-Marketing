@@ -65,3 +65,20 @@
 @media (max-width: 620px) {
   .brand img { width: 168px; height: 56px; }
 }
+
+/* The info dialog grows softly into view when an orbit menu is selected. */
+.info-dialog[open] { animation: orbit-dialog-pop .38s cubic-bezier(.2,.85,.25,1.08) both; }
+.info-dialog[open]::backdrop { animation: orbit-backdrop-in .28s ease-out both; }
+@keyframes orbit-dialog-pop {
+  0% { opacity: 0; transform: translateY(12px) scale(.82); }
+  75% { opacity: 1; transform: translateY(0) scale(1.025); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes orbit-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.partner-logo { display: block; width: 68px; height: 36px; object-fit: contain; flex: 0 0 auto; }
+@media (max-width: 620px) {
+  .partner-logo { width: 42px; height: 26px; }
+}
