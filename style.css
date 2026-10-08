@@ -92,3 +92,109 @@
 }
 .location-link { display: inline-block; margin: 0 0 7px 23px; color: #36c8ed; font-size: 10px; font-weight: 700; text-decoration: none; }
 .location-link:hover { color: #9eeaff; text-decoration: underline; }
+
+/* Animated thank-you greeting on the opening page. */
+.thanks-toast {
+  position: fixed;
+  z-index: 20;
+  right: 20px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(390px, calc(100vw - 32px));
+  min-height: 132px;
+  padding: 8px 18px 8px 5px;
+  border: 1px solid #54c8ed70;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #123557f5, #071a32f5);
+  box-shadow: 0 16px 48px #020b1dcc, 0 0 28px #25b8e51c;
+  animation: thanks-enter .65s cubic-bezier(.2,.85,.25,1.08) both;
+}
+.thanks-toast[hidden] { display: none; }
+.thanks-toast img {
+  align-self: flex-end;
+  display: block;
+  width: 145px;
+  height: 145px;
+  margin-top: -28px;
+  margin-bottom: -8px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  animation: thanks-float 3.8s ease-in-out .7s infinite;
+}
+.thanks-bubble {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 14px 15px;
+  border-radius: 15px;
+  background: #f1f8ff;
+  color: #0b2a4a;
+  font: 700 13px/1.45 Manrope, sans-serif;
+  box-shadow: 0 5px 16px #020b1d30;
+}
+.thanks-bubble::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  background: #f1f8ff;
+  transform: translateY(-50%) rotate(45deg);
+}
+.thanks-close {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #d6e8f544;
+  border-radius: 50%;
+  background: #09213a;
+  color: #d8eafa;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+.thanks-close:hover { background: #16466d; }
+@keyframes thanks-enter {
+  from { opacity: 0; transform: translateY(24px) scale(.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes thanks-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@media (max-width: 620px) {
+  .thanks-toast { right: 10px; bottom: 10px; width: calc(100vw - 20px); min-height: 100px; gap: 4px; padding: 7px 28px 7px 3px; border-radius: 17px; }
+  .thanks-toast img { width: 105px; height: 105px; margin-top: -17px; margin-bottom: -7px; }
+  .thanks-bubble { padding: 11px 12px; border-radius: 12px; font-size: 11px; }
+}
+
+/* The greeting is one transparent animated GIF: couple first, message second. */
+.thanks-toast {
+  display: block;
+  width: min(320px, calc(100vw - 32px));
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+}
+.thanks-toast img.thanks-gif {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  animation: none;
+}
+@media (max-width: 620px) {
+  .thanks-toast { right: 10px; bottom: 10px; width: min(290px, calc(100vw - 24px)); }
+}
