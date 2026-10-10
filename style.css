@@ -198,3 +198,97 @@
 @media (max-width: 620px) {
   .thanks-toast { right: 10px; bottom: 10px; width: min(290px, calc(100vw - 24px)); }
 }
+
+/* Small package recommendation popover */
+.package-card[role="button"] { cursor: pointer; }
+.package-card[role="button"]:focus-visible { outline: 3px solid #168bec; outline-offset: 3px; }
+.package-info-icon {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid #cfe5f2;
+  border-radius: 50%;
+  background: #fff;
+  color: #1688dd;
+  font: 700 10px Manrope, sans-serif;
+}
+.package-card[aria-expanded="true"] .package-info-icon { background: #eaf7fc; border-color: #91d4ed; }
+.package-popover {
+  position: fixed;
+  inset: auto;
+  z-index: 10;
+  width: min(310px, calc(100vw - 24px));
+  max-width: none;
+  margin: 0;
+  padding: 17px 18px 16px;
+  overflow: visible;
+  border: 1px solid #d6e5ef;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 18px 48px #09214330;
+  animation: package-pop-in .16s ease-out both;
+}
+.package-popover::backdrop { background: transparent; }
+.package-popover-close {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 1px solid #e2eaf1;
+  border-radius: 50%;
+  background: #f8fafc;
+  color: #66768a;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+}
+.package-popover-kicker { padding-right: 28px; color: #1688dd; font-size: 9px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.package-popover h2 { margin: 8px 0 12px; color: #14233c; font: 700 20px/1.2 Manrope, sans-serif; }
+.package-popover-devices { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 11px; border-radius: 9px; background: #f0f8fc; }
+.package-popover-devices span { color: #718198; font-size: 10px; }
+.package-popover-devices strong { color: #0b4774; font-size: 11px; white-space: nowrap; }
+.package-popover p { margin: 11px 0 0; color: #40516a; font-size: 11px; line-height: 1.55; }
+.package-popover p.package-popover-note { padding-top: 9px; border-top: 1px solid #edf1f5; color: #7b899b; font-size: 9px; }
+@keyframes package-pop-in { from { opacity: 0; transform: translateY(5px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 620px) {
+  .package-popover { padding: 15px 16px 14px; }
+  .package-popover h2 { font-size: 18px; }
+  .package-popover-devices span, .package-popover p { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .package-popover { animation: none; } }
+.package-apps-wrap { margin-top: 13px; }
+.package-apps-heading { display: flex; align-items: center; gap: 6px; color: #718198; font-size: 9px; font-weight: 700; }
+.package-apps-heading span { color: #ff9b38; font-size: 12px; }
+.package-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 7px; }
+.package-app-chip { display: flex; min-width: 0; align-items: center; gap: 7px; padding: 6px 7px; border: 1px solid #e8eef3; border-radius: 9px; background: linear-gradient(135deg, #fff, #f7fafc); color: #3e4e64; font-size: 9px; font-weight: 700; }
+.package-app-chip > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.package-app-icon { display: grid; width: 23px; height: 23px; flex: 0 0 23px; place-items: center; overflow: hidden; border-radius: 7px; background: #70829b; }
+.package-app-icon svg { display: block; width: 15px; height: 15px; fill: currentColor; color: #fff; stroke: none; }
+.package-app-whatsapp .package-app-icon { background: #25b96b; }
+.package-app-whatsapp .package-app-icon svg path:first-child { fill: none; stroke: #fff; stroke-width: 1.7; }
+.package-app-whatsapp .package-app-icon svg path:last-child { fill: #fff; }
+.package-app-youtube .package-app-icon { background: #fff; }
+.package-app-youtube .package-app-icon svg rect { fill: #f03; }
+.package-app-youtube .package-app-icon svg .app-icon-cutout { fill: #fff; }
+.package-app-instagram .package-app-icon { background: linear-gradient(135deg, #7655d7, #e34478 58%, #ff9a38); }
+.package-app-instagram .package-app-icon svg { fill: none; stroke: #fff; stroke-width: 2; }
+.package-app-instagram .package-app-icon svg .app-icon-dot { fill: #fff; stroke: none; }
+.package-app-tiktok .package-app-icon { background: #111; }
+.package-app-tiktok .package-app-icon svg { fill: #fff; filter: drop-shadow(1px 0 #ff315c) drop-shadow(-1px 0 #22d4df); }
+.package-app-zoom .package-app-icon { background: #2d8cff; }
+.package-app-google-classroom .package-app-icon { background: #188c5a; }
+.package-app-google-classroom .package-app-icon svg rect { fill: none; stroke: #fff; stroke-width: 1.5; }
+.package-app-netflix .package-app-icon { background: #121212; }
+.package-app-netflix .package-app-icon svg { fill: #ed1c24; }
+.package-app-google .package-app-icon { background: #4285f4; }
+.package-app-google .package-app-icon svg { fill: none; stroke: #fff; stroke-width: 2.3; stroke-linecap: round; }
+.package-app-telegram .package-app-icon { background: #27a5e7; }
