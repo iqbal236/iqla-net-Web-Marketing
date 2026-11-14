@@ -45,6 +45,8 @@ function selectTopic(key) {
     link.rel = info.external ? 'noopener noreferrer' : '';
     if (info.tab) link.onclick = () => selectPackage(info.tab);
     else link.onclick = null;
+    const registerLink = document.getElementById('info-register');
+    if (registerLink) registerLink.hidden = !['hotspot', 'home', 'area'].includes(key);
     if (!panel.open) panel.showModal();
   }
 }
@@ -175,6 +177,8 @@ function showPackagePopover(card) {
   const note = document.getElementById('package-popover-note');
   note.textContent = info.note;
   note.hidden = !info.note;
+  const cta = document.getElementById('package-popover-cta');
+  if (cta) cta.hidden = !['HOTSPOT', 'WI-FI RUMAH'].includes(info.service);
 
   packagePopover.style.left = '0px';
   packagePopover.style.top = '0px';
