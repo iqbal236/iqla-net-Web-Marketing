@@ -22,7 +22,7 @@ const topics = {
   kontak: {
     index: '05', category: 'HUBUNGI IQla.net', title: 'Tanyakan lewat WhatsApp',
     copy: 'Hubungi kami untuk menanyakan paket dan ketersediaan layanan.',
-    link: 'Chat Admin via WhatsApp', href: 'https://wa.me/6282364000557', tab: null, external: true
+    link: 'Chat Admin via WhatsApp', href: 'https://wa.me/6285172180236', tab: null, external: true
   }
 };
 const panel = document.getElementById('info-dialog');
